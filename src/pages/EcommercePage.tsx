@@ -3,6 +3,7 @@ import {
   ShoppingBag, CreditCard, Truck, Check, ArrowRight, ShieldCheck, 
   Plus, Minus, Trash2, X, Sparkles, Tag, CheckCircle2, ChevronRight 
 } from 'lucide-react';
+import { playClickSound, playPopSound, playSuccessSound } from '../utils/audio';
 
 interface EcommercePageProps {
   onNavigate: (path: string) => void;
@@ -90,6 +91,7 @@ export const EcommercePage: React.FC<EcommercePageProps> = ({ onNavigate }) => {
     : products.filter(p => p.category === selectedCategory);
 
   const addToCart = (product: Product) => {
+    playPopSound();
     setCart(prev => {
       const existing = prev.find(item => item.id === product.id);
       if (existing) {
@@ -103,6 +105,7 @@ export const EcommercePage: React.FC<EcommercePageProps> = ({ onNavigate }) => {
   };
 
   const updateQuantity = (id: string, delta: number) => {
+    playClickSound();
     setCart(prev => prev.map(item => {
       if (item.id === id) {
         const newQty = item.quantity + delta;
@@ -113,6 +116,7 @@ export const EcommercePage: React.FC<EcommercePageProps> = ({ onNavigate }) => {
   };
 
   const removeItem = (id: string) => {
+    playClickSound();
     setCart(prev => prev.filter(item => item.id !== id));
   };
 
@@ -122,6 +126,7 @@ export const EcommercePage: React.FC<EcommercePageProps> = ({ onNavigate }) => {
   const freeShippingProgress = Math.min(100, (subtotal / shippingThreshold) * 100);
 
   const handleCheckout = () => {
+    playSuccessSound();
     setCheckoutComplete(true);
     setTimeout(() => {
       setCheckoutComplete(false);

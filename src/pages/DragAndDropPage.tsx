@@ -3,6 +3,7 @@ import {
   Layout, Sliders, Code2, ArrowRight, Eye, Monitor, Tablet, Smartphone, 
   Sparkles, Check, Copy, ExternalLink, X, CheckCircle2 
 } from 'lucide-react';
+import { playClickSound, playPopSound, playSuccessSound } from '../utils/audio';
 
 interface DragAndDropPageProps {
   onNavigate: (path: string) => void;
@@ -114,6 +115,7 @@ export const DragAndDropPage: React.FC<DragAndDropPageProps> = ({ onNavigate }) 
 }`;
 
   const copyToClipboard = () => {
+    playSuccessSound();
     navigator.clipboard.writeText(generatedCSS);
     setCopiedCSS(true);
     setTimeout(() => setCopiedCSS(false), 2000);

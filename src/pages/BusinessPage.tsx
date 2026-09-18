@@ -3,6 +3,7 @@ import {
   Calendar, Users, DollarSign, Clock, CheckCircle2, ArrowRight, 
   Sparkles, Check, ChevronRight, Plus, Phone, Mail, Filter 
 } from 'lucide-react';
+import { playClickSound, playSuccessSound } from '../utils/audio';
 
 interface BusinessPageProps {
   onNavigate: (path: string) => void;
@@ -76,6 +77,7 @@ export const BusinessPage: React.FC<BusinessPageProps> = ({ onNavigate }) => {
   const handleAddLead = (e: React.FormEvent) => {
     e.preventDefault();
     if (!newLeadName.trim()) return;
+    playClickSound();
     const newLead: CRMLead = {
       id: `l-${Date.now()}`,
       name: newLeadName,
@@ -90,10 +92,14 @@ export const BusinessPage: React.FC<BusinessPageProps> = ({ onNavigate }) => {
   };
 
   const advanceStage = (id: string) => {
+    playClickSound();
     const stages: CRMLead['stage'][] = ['New', 'Contacted', 'Proposal', 'Won'];
     setLeads(prev => prev.map(lead => {
       if (lead.id === id) {
         const nextIndex = Math.min(stages.length - 1, stages.indexOf(lead.stage) + 1);
+        if (nextIndex === stages.length - 1) {
+          playSuccessSound();
+        }
         return { ...lead, stage: stages[nextIndex] };
       }
       return lead;
@@ -348,7 +354,10 @@ export const BusinessPage: React.FC<BusinessPageProps> = ({ onNavigate }) => {
                   </div>
                 ) : (
                   <button
-                    onClick={() => setBookingConfirmed(true)}
+                    onClick={() => {
+                      playSuccessSound();
+                      setBookingConfirmed(true);
+                    }}
                     className="w-full py-3.5 rounded-full text-sm font-semibold bg-[#116DFF] hover:bg-[#0E5CD8] text-white shadow-md transition-all flex items-center justify-center gap-2"
                   >
                     <span>Confirm Client Appointment</span>
