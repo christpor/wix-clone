@@ -4,20 +4,18 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
-  darkMode: 'class',
   theme: {
     extend: {
       colors: {
         wix: {
           blue: '#116DFF',
           blueHover: '#0E5CD8',
-          dark: '#000000',
-          slate: '#0F1216',
-          sand: '#EDEBE8',
-          card: '#16191E',
-          cardBorder: 'rgba(255, 255, 255, 0.1)',
-          muted: '#8F939A',
-          highlight: '#7843E6'
+          dark: '#0F172A',
+          charcoal: '#1E293B',
+          muted: '#64748B',
+          lightBg: '#F8FAFC',
+          mint: '#D8F5E9',
+          border: 'rgba(15, 23, 42, 0.08)',
         }
       },
       fontFamily: {

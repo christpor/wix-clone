@@ -9,32 +9,49 @@
   }
 
   body {
-    background-color: #000000;
-    color: #F3F4F6;
+    background-color: #FFFFFF;
+    color: #0F172A;
     overflow-x: hidden;
+    font-family: 'Wix Madefor Display', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   }
 }
 
-/* 3D Perspective Tilt */
-.perspective-1000 {
-  perspective: 1000px;
+/* Light glassmorphism & cards */
+.wix-card {
+  background: #FFFFFF;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.04);
 }
 
-.preserve-3d {
-  transform-style: preserve-3d;
+.wix-card-hover {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Wix Harmony Glassmorphism */
-.wix-glass {
-  background: rgba(18, 22, 28, 0.7);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+.wix-card-hover:hover {
+  border-color: rgba(15, 23, 42, 0.16);
+  box-shadow: 0 12px 32px -4px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
 }
 
-.wix-glass-hover:hover {
-  background: rgba(26, 32, 40, 0.85);
-  border-color: rgba(255, 255, 255, 0.2);
+/* Mint / Seafoam mesh gradient used in Wix Hero */
+.bg-wix-hero-gradient {
+  background: radial-gradient(ellipse at 50% 0%, #D8F5E9 0%, #EFFBF6 35%, #FFFFFF 75%);
+}
+
+.bg-wix-good-company {
+  background: linear-gradient(180deg, #FFFFFF 0%, #F5F0FF 40%, #FFF0F5 100%);
+}
+
+/* Outline Ghost Typography */
+.text-ghost-stroke {
+  -webkit-text-stroke: 1.5px #CBD5E1;
+  color: transparent;
+  transition: all 0.25s ease;
+}
+
+.text-ghost-stroke:hover {
+  -webkit-text-stroke: 1.5px #64748B;
+  color: transparent;
 }
 
 /* Lenis Smooth Scroll CSS */
@@ -60,14 +77,14 @@ html.lenis, html.lenis body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #000000;
+  background: #FFFFFF;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1F242D;
+  background: #CBD5E1;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #116DFF;
+  background: #94A3B8;
 }

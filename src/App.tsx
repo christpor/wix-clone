@@ -77,7 +77,7 @@ export const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#000000] text-[#F3F4F6]">
+    <div className="min-h-screen flex flex-col bg-white text-[#0F172A]">
       <Navbar currentPath={currentPath} onNavigate={navigate} />
       <main className="flex-1">
         {renderPage()}

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Menu, X, ChevronDown, Sparkles, ArrowRight, Globe } from 'lucide-react';
+import { ChevronDown, Globe, Menu, X, ArrowUpRight } from 'lucide-react';
 
 interface NavbarProps {
   currentPath: string;
@@ -8,110 +8,252 @@ interface NavbarProps {
 
 export const Navbar: React.FC<NavbarProps> = ({ currentPath, onNavigate }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  const navItems = [
-    { label: 'AI Builder', path: '/ai-website-builder' },
-    { label: 'eCommerce', path: '/ecommerce/online-store' },
-    { label: 'Business Solutions', path: '/business/website' },
-    { label: 'Studio & Templates', path: '/builder/drag-and-drop' },
-    { label: 'About', path: '/about/us' }
-  ];
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
   const handleNav = (path: string) => {
     setMobileMenuOpen(false);
+    setActiveDropdown(null);
     onNavigate(path);
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-[#000000]/85 backdrop-blur-xl border-b border-white/10 transition-colors">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 sm:h-20">
-          {/* Brand Logo */}
-          <div 
-            onClick={() => handleNav('/')}
-            className="flex items-center gap-2 cursor-pointer group"
-          >
-            {/* Authentic Wix 3D Monogram & Wordmark */}
-            <div className="flex items-center gap-1.5">
-              <span className="font-extrabold text-2xl tracking-tighter text-white font-sans group-hover:text-[#116DFF] transition-colors">
+    <header className="sticky top-0 z-50 w-full bg-white/95 backdrop-blur-md border-b border-slate-100 transition-all">
+      <div className="max-w-[1440px] mx-auto px-6 lg:px-12">
+        <div className="flex items-center justify-between h-16 sm:h-[72px]">
+          {/* Left Cluster: Logo & Navigation */}
+          <div className="flex items-center gap-8 xl:gap-10">
+            {/* Wix Official Wordmark */}
+            <div 
+              onClick={() => handleNav('/')}
+              className="cursor-pointer flex items-center group select-none"
+            >
+              <span className="text-[28px] font-black tracking-[-0.05em] text-black font-sans leading-none">
                 WiX
               </span>
-              <span className="text-[10px] uppercase font-bold tracking-widest px-1.5 py-0.5 rounded bg-white/10 text-white/75 border border-white/10">
-                Harmony
-              </span>
             </div>
+
+            {/* Desktop Navigation Links */}
+            <nav className="hidden lg:flex items-center gap-6 xl:gap-7 text-[15px] font-normal text-slate-800">
+              <div 
+                className="relative group cursor-pointer py-2 flex items-center gap-1 hover:text-black transition-colors"
+                onMouseEnter={() => setActiveDropdown('product')}
+                onMouseLeave={() => setActiveDropdown(null)}
+              >
+                <span>Product</span>
+                <ChevronDown className="w-3.5 h-3.5 text-slate-500 transition-transform group-hover:rotate-180" />
+                
+                {activeDropdown === 'product' && (
+                  <div className="absolute top-full left-0 mt-1 w-64 bg-white rounded-2xl shadow-xl border border-slate-100 p-3 flex flex-col gap-1.5 animate-in fade-in zoom-in-95 duration-150">
+                    <button 
+                      onClick={() => handleNav('/ai-website-builder')}
+                      className="text-left px-3.5 py-2.5 rounded-xl hover:bg-slate-50 transition-colors text-sm font-medium text-slate-900"
+                    >
+                      AI Website Builder
+                      <span className="block text-xs font-normal text-slate-500">Create a business site in minutes</span>
+                    </button>
+                    <button 
+                      onClick={() => handleNav('/builder/drag-and-drop')}
+                      className="text-left px-3.5 py-2.5 rounded-xl hover:bg-slate-50 transition-colors text-sm font-medium text-slate-900"
+                    >
+                      Website Design
+                      <span className="block text-xs font-normal text-slate-500">Pixel-level drag & drop freedom</span>
+                    </button>
+                    <button 
+                      onClick={() => handleNav('/ecommerce/online-store')}
+                      className="text-left px-3.5 py-2.5 rounded-xl hover:bg-slate-50 transition-colors text-sm font-medium text-slate-900"
+                    >
+                      eCommerce Platform
+                      <span className="block text-xs font-normal text-slate-500">Sell products & subscriptions</span>
+                    </button>
+                  </div>
+                )}
+              </div>
+
+              <div 
+                className="relative group cursor-pointer py-2 flex items-center gap-1 hover:text-black transition-colors"
+                onMouseEnter={() => setActiveDropdown('solutions')}
+                onMouseLeave={() => setActiveDropdown(null)}
+              >
+                <span>Solutions</span>
+                <ChevronDown className="w-3.5 h-3.5 text-slate-500 transition-transform group-hover:rotate-180" />
+
+                {activeDropdown === 'solutions' && (
+                  <div className="absolute top-full left-0 mt-1 w-64 bg-white rounded-2xl shadow-xl border border-slate-100 p-3 flex flex-col gap-1.5 animate-in fade-in zoom-in-95 duration-150">
+                    <button 
+                      onClick={() => handleNav('/business/website')}
+                      className="text-left px-3.5 py-2.5 rounded-xl hover:bg-slate-50 transition-colors text-sm font-medium text-slate-900"
+                    >
+                      Business & Bookings
+                    </button>
+                    <button 
+                      onClick={() => handleNav('/ecommerce/online-store')}
+                      className="text-left px-3.5 py-2.5 rounded-xl hover:bg-slate-50 transition-colors text-sm font-medium text-slate-900"
+                    >
+                      Online Store & Retail
+                    </button>
+                    <button 
+                      onClick={() => handleNav('/')}
+                      className="text-left px-3.5 py-2.5 rounded-xl hover:bg-slate-50 transition-colors text-sm font-medium text-slate-900"
+                    >
+                      Portfolios & Freelancers
+                    </button>
+                  </div>
+                )}
+              </div>
+
+              <div 
+                className="relative group cursor-pointer py-2 flex items-center gap-1 hover:text-black transition-colors"
+                onMouseEnter={() => setActiveDropdown('resources')}
+                onMouseLeave={() => setActiveDropdown(null)}
+              >
+                <span>Resources</span>
+                <ChevronDown className="w-3.5 h-3.5 text-slate-500 transition-transform group-hover:rotate-180" />
+
+                {activeDropdown === 'resources' && (
+                  <div className="absolute top-full left-0 mt-1 w-56 bg-white rounded-2xl shadow-xl border border-slate-100 p-3 flex flex-col gap-1.5 animate-in fade-in zoom-in-95 duration-150">
+                    <button 
+                      onClick={() => handleNav('/about/us')}
+                      className="text-left px-3.5 py-2.5 rounded-xl hover:bg-slate-50 transition-colors text-sm font-medium text-slate-900"
+                    >
+                      Blog & Guides
+                    </button>
+                    <button 
+                      onClick={() => handleNav('/about/us')}
+                      className="text-left px-3.5 py-2.5 rounded-xl hover:bg-slate-50 transition-colors text-sm font-medium text-slate-900"
+                    >
+                      SEO Hub & Visibility
+                    </button>
+                    <button 
+                      onClick={() => handleNav('/about/us')}
+                      className="text-left px-3.5 py-2.5 rounded-xl hover:bg-slate-50 transition-colors text-sm font-medium text-slate-900"
+                    >
+                      Help Center
+                    </button>
+                  </div>
+                )}
+              </div>
+
+              <button 
+                onClick={() => handleNav('/')}
+                className="hover:text-black transition-colors"
+              >
+                Domains
+              </button>
+
+              <button 
+                onClick={() => handleNav('/')}
+                className="hover:text-black transition-colors"
+              >
+                Pricing
+              </button>
+
+              {/* Vertical divider */}
+              <div className="h-4 w-[1px] bg-slate-300" />
+
+              <button 
+                onClick={() => handleNav('/builder/drag-and-drop')}
+                className="hover:text-black transition-colors flex items-center gap-1 font-medium"
+              >
+                Wix Studio
+                <ArrowUpRight className="w-3 h-3 text-slate-400" />
+              </button>
+
+              <button 
+                onClick={() => handleNav('/about/us')}
+                className="hover:text-black transition-colors"
+              >
+                Enterprise
+              </button>
+            </nav>
           </div>
 
-          {/* Desktop Nav Links */}
-          <nav className="hidden lg:flex items-center gap-1">
-            {navItems.map((item) => {
-              const isActive = currentPath === item.path;
-              return (
-                <button
-                  key={item.path}
-                  onClick={() => handleNav(item.path)}
-                  className={`px-3.5 py-2 rounded-full text-xs font-semibold tracking-wide transition-all ${
-                    isActive
-                      ? 'text-white bg-white/15'
-                      : 'text-[#8F939A] hover:text-white hover:bg-white/5'
-                  }`}
-                >
-                  {item.label}
-                </button>
-              );
-            })}
-          </nav>
+          {/* Right Cluster: Actions */}
+          <div className="flex items-center gap-5 sm:gap-6">
+            <button 
+              className="hidden sm:flex items-center justify-center p-2 rounded-full hover:bg-slate-100 text-slate-700 transition-colors"
+              title="Change Language"
+            >
+              <Globe className="w-4 h-4 text-slate-800" />
+            </button>
 
-          {/* Action Buttons */}
-          <div className="hidden sm:flex items-center gap-3">
             <button
               onClick={() => handleNav('/about/us')}
-              className="px-4 py-2 rounded-full text-xs font-semibold text-white/80 hover:text-white transition-colors"
+              className="hidden sm:block text-[15px] font-normal text-slate-800 hover:text-black transition-colors"
             >
-              Enterprise
+              Log In
             </button>
+
             <button
               onClick={() => handleNav('/ai-website-builder')}
-              className="flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-[#116DFF] hover:bg-[#0E5CD8] text-white shadow-lg shadow-[#116DFF]/25 hover:scale-[1.02] active:scale-[0.98] transition-all"
+              className="px-6 py-2.5 rounded-full text-[14px] font-medium tracking-normal bg-[#116DFF] hover:bg-[#0E5CD8] text-white shadow-sm hover:shadow transition-all active:scale-[0.98]"
             >
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>Get Started</span>
+              Start for free
             </button>
-          </div>
 
-          {/* Mobile hamburger */}
-          <div className="flex lg:hidden items-center">
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-xl text-white/80 hover:text-white hover:bg-white/5"
-            >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
+            {/* Mobile hamburger */}
+            <div className="flex lg:hidden items-center">
+              <button
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                className="p-2 rounded-xl text-slate-800 hover:bg-slate-100"
+              >
+                {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              </button>
+            </div>
           </div>
         </div>
       </div>
 
-      {/* Mobile Menu Drawer */}
+      {/* Mobile Drawer */}
       {mobileMenuOpen && (
         <div 
           data-lenis-prevent="true"
-          className="lg:hidden border-b border-white/10 bg-[#000000]/95 backdrop-blur-2xl px-6 py-6 space-y-3 overscroll-contain"
+          className="lg:hidden border-b border-slate-200 bg-white px-6 py-6 space-y-4 shadow-xl"
         >
-          {navItems.map((item) => (
-            <button
-              key={item.path}
-              onClick={() => handleNav(item.path)}
-              className="w-full text-left py-2.5 text-base font-medium text-white/90 hover:text-white"
-            >
-              {item.label}
-            </button>
-          ))}
-          <div className="pt-4 border-t border-white/10 flex flex-col gap-2">
+          <div className="space-y-2">
             <button
               onClick={() => handleNav('/ai-website-builder')}
-              className="w-full py-3 rounded-full text-xs font-bold uppercase tracking-wider bg-[#116DFF] text-white text-center"
+              className="w-full text-left py-2 text-base font-medium text-slate-900 hover:text-blue-600"
             >
-              Get Started
+              AI Website Builder
+            </button>
+            <button
+              onClick={() => handleNav('/ecommerce/online-store')}
+              className="w-full text-left py-2 text-base font-medium text-slate-900 hover:text-blue-600"
+            >
+              eCommerce
+            </button>
+            <button
+              onClick={() => handleNav('/business/website')}
+              className="w-full text-left py-2 text-base font-medium text-slate-900 hover:text-blue-600"
+            >
+              Business Solutions
+            </button>
+            <button
+              onClick={() => handleNav('/builder/drag-and-drop')}
+              className="w-full text-left py-2 text-base font-medium text-slate-900 hover:text-blue-600"
+            >
+              Wix Studio
+            </button>
+            <button
+              onClick={() => handleNav('/about/us')}
+              className="w-full text-left py-2 text-base font-medium text-slate-900 hover:text-blue-600"
+            >
+              About & Enterprise
+            </button>
+          </div>
+
+          <div className="pt-4 border-t border-slate-100 flex flex-col gap-3">
+            <button
+              onClick={() => handleNav('/about/us')}
+              className="w-full py-2.5 rounded-full text-sm font-medium text-slate-800 border border-slate-200"
+            >
+              Log In
+            </button>
+            <button
+              onClick={() => handleNav('/ai-website-builder')}
+              className="w-full py-3 rounded-full text-sm font-medium bg-[#116DFF] text-white text-center"
+            >
+              Start for free
             </button>
           </div>
         </div>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowUpRight, Heart, Globe, Shield } from 'lucide-react';
+import { Globe, ArrowUpRight } from 'lucide-react';
 
 interface FooterProps {
   onNavigate: (path: string) => void;
@@ -7,75 +7,179 @@ interface FooterProps {
 
 export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
   return (
-    <footer className="border-t border-white/10 bg-[#000000] pt-16 pb-12 text-sm text-[#8F939A]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
-          {/* Col 1 */}
-          <div className="space-y-3">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-white">Product</h4>
-            <ul className="space-y-2">
-              <li><button onClick={() => onNavigate('/ai-website-builder')} className="hover:text-white transition-colors">AI Website Builder</button></li>
-              <li><button onClick={() => onNavigate('/builder/drag-and-drop')} className="hover:text-white transition-colors">Website Templates</button></li>
-              <li><button onClick={() => onNavigate('/ecommerce/online-store')} className="hover:text-white transition-colors">eCommerce Store</button></li>
-              <li><button onClick={() => onNavigate('/business/website')} className="hover:text-white transition-colors">Business Solutions</button></li>
-              <li><button onClick={() => onNavigate('/builder/drag-and-drop')} className="hover:text-white transition-colors">Wix Studio</button></li>
+    <footer className="w-full bg-slate-50 border-t border-slate-200/80 pt-16 pb-12 text-slate-700">
+      <div className="max-w-[1440px] mx-auto px-6 lg:px-12">
+        {/* Upper Grid: 5 Navigation Columns */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 lg:gap-12 pb-16 border-b border-slate-200">
+          {/* Column 1: PRODUCT */}
+          <div className="space-y-4">
+            <h4 className="text-xs font-bold uppercase tracking-widest text-slate-900">Product</h4>
+            <ul className="space-y-2.5 text-sm text-slate-600">
+              <li>
+                <button onClick={() => onNavigate('/ai-website-builder')} className="hover:text-black transition-colors">
+                  AI Website Builder
+                </button>
+              </li>
+              <li>
+                <button onClick={() => onNavigate('/builder/drag-and-drop')} className="hover:text-black transition-colors">
+                  Website Templates
+                </button>
+              </li>
+              <li>
+                <button onClick={() => onNavigate('/ecommerce/online-store')} className="hover:text-black transition-colors">
+                  eCommerce Store
+                </button>
+              </li>
+              <li>
+                <button onClick={() => onNavigate('/builder/drag-and-drop')} className="hover:text-black transition-colors">
+                  Wix Studio
+                </button>
+              </li>
+              <li>
+                <button onClick={() => onNavigate('/builder/drag-and-drop')} className="hover:text-black transition-colors">
+                  App Market
+                </button>
+              </li>
             </ul>
           </div>
 
-          {/* Col 2 */}
-          <div className="space-y-3">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-white">Solutions</h4>
-            <ul className="space-y-2">
-              <li><button onClick={() => onNavigate('/business/website')} className="hover:text-white transition-colors">Online Booking</button></li>
-              <li><button onClick={() => onNavigate('/business/website')} className="hover:text-white transition-colors">Restaurant Menus</button></li>
-              <li><button onClick={() => onNavigate('/business/website')} className="hover:text-white transition-colors">Blog & Content</button></li>
-              <li><button onClick={() => onNavigate('/business/website')} className="hover:text-white transition-colors">Portfolio & CV</button></li>
-              <li><button onClick={() => onNavigate('/about/us')} className="hover:text-white transition-colors">Enterprise Systems</button></li>
+          {/* Column 2: SOLUTIONS */}
+          <div className="space-y-4">
+            <h4 className="text-xs font-bold uppercase tracking-widest text-slate-900">Solutions</h4>
+            <ul className="space-y-2.5 text-sm text-slate-600">
+              <li>
+                <button onClick={() => onNavigate('/business/website')} className="hover:text-black transition-colors">
+                  Online Bookings
+                </button>
+              </li>
+              <li>
+                <button onClick={() => onNavigate('/ecommerce/online-store')} className="hover:text-black transition-colors">
+                  Restaurant System
+                </button>
+              </li>
+              <li>
+                <button onClick={() => onNavigate('/business/website')} className="hover:text-black transition-colors">
+                  Blog & Publications
+                </button>
+              </li>
+              <li>
+                <button onClick={() => onNavigate('/builder/drag-and-drop')} className="hover:text-black transition-colors">
+                  Portfolio Websites
+                </button>
+              </li>
+              <li>
+                <button onClick={() => onNavigate('/about/us')} className="hover:text-black transition-colors">
+                  Enterprise
+                </button>
+              </li>
             </ul>
           </div>
 
-          {/* Col 3 */}
-          <div className="space-y-3">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-white">Community</h4>
-            <ul className="space-y-2">
-              <li><a href="https://wix.com/blog" target="_blank" rel="noreferrer" className="hover:text-white transition-colors">Wix Blog</a></li>
-              <li><button onClick={() => onNavigate('/about/us')} className="hover:text-white transition-colors">Developer Forum</button></li>
-              <li><button onClick={() => onNavigate('/about/us')} className="hover:text-white transition-colors">Partner Program</button></li>
-              <li><button onClick={() => onNavigate('/about/us')} className="hover:text-white transition-colors">Accessibility Hub</button></li>
+          {/* Column 3: COMMUNITY */}
+          <div className="space-y-4">
+            <h4 className="text-xs font-bold uppercase tracking-widest text-slate-900">Community</h4>
+            <ul className="space-y-2.5 text-sm text-slate-600">
+              <li>
+                <button onClick={() => onNavigate('/about/us')} className="hover:text-black transition-colors">
+                  Wix Partners
+                </button>
+              </li>
+              <li>
+                <button onClick={() => onNavigate('/about/us')} className="hover:text-black transition-colors">
+                  Developer Center
+                </button>
+              </li>
+              <li>
+                <button onClick={() => onNavigate('/about/us')} className="hover:text-black transition-colors">
+                  Wix Events
+                </button>
+              </li>
+              <li>
+                <button onClick={() => onNavigate('/about/us')} className="hover:text-black transition-colors">
+                  Community Forum
+                </button>
+              </li>
             </ul>
           </div>
 
-          {/* Col 4 */}
-          <div className="space-y-3">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-white">Company</h4>
-            <ul className="space-y-2">
-              <li><button onClick={() => onNavigate('/about/us')} className="hover:text-white transition-colors">About Wix</button></li>
-              <li><button onClick={() => onNavigate('/about/us')} className="hover:text-white transition-colors">Investor Relations</button></li>
-              <li><button onClick={() => onNavigate('/about/us')} className="hover:text-white transition-colors">Careers & Jobs</button></li>
-              <li><button onClick={() => onNavigate('/about/us')} className="hover:text-white transition-colors">Privacy & Terms</button></li>
+          {/* Column 4: SUPPORT */}
+          <div className="space-y-4">
+            <h4 className="text-xs font-bold uppercase tracking-widest text-slate-900">Support</h4>
+            <ul className="space-y-2.5 text-sm text-slate-600">
+              <li>
+                <button onClick={() => onNavigate('/about/us')} className="hover:text-black transition-colors">
+                  Help Center
+                </button>
+              </li>
+              <li>
+                <button onClick={() => onNavigate('/about/us')} className="hover:text-black transition-colors">
+                  Hire a Professional
+                </button>
+              </li>
+              <li>
+                <button onClick={() => onNavigate('/about/us')} className="hover:text-black transition-colors">
+                  System Status
+                </button>
+              </li>
+              <li>
+                <button onClick={() => onNavigate('/about/us')} className="hover:text-black transition-colors">
+                  Speed & Reliability
+                </button>
+              </li>
             </ul>
           </div>
 
-          {/* Col 5: Brand Note */}
-          <div className="col-span-2 md:col-span-1 space-y-3">
-            <div className="flex items-center gap-1 text-white font-bold text-lg">
-              <span>WiX</span>
-              <span className="text-xs text-[#116DFF] font-mono font-normal ml-1">Harmony</span>
-            </div>
-            <p className="text-xs text-[#8F939A] leading-relaxed">
-              The leading website builder platform trusted by over 250 million users in 190 countries.
-            </p>
+          {/* Column 5: COMPANY */}
+          <div className="space-y-4">
+            <h4 className="text-xs font-bold uppercase tracking-widest text-slate-900">Company</h4>
+            <ul className="space-y-2.5 text-sm text-slate-600">
+              <li>
+                <button onClick={() => onNavigate('/about/us')} className="hover:text-black transition-colors">
+                  About Wix
+                </button>
+              </li>
+              <li>
+                <button onClick={() => onNavigate('/about/us')} className="hover:text-black transition-colors">
+                  Press & Media
+                </button>
+              </li>
+              <li>
+                <button onClick={() => onNavigate('/about/us')} className="hover:text-black transition-colors">
+                  Investor Relations
+                </button>
+              </li>
+              <li>
+                <button onClick={() => onNavigate('/about/us')} className="hover:text-black transition-colors">
+                  Careers
+                </button>
+              </li>
+              <li>
+                <button onClick={() => onNavigate('/about/us')} className="hover:text-black transition-colors">
+                  Sustainability
+                </button>
+              </li>
+            </ul>
           </div>
         </div>
 
-        <div className="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
-          <p>© 2006-2026 Wix.com, Inc. All rights reserved.</p>
-          <div className="flex items-center gap-4 text-[#8F939A]">
-            <button onClick={() => onNavigate('/about/us')} className="hover:text-white transition-colors">Security</button>
-            <span>•</span>
-            <button onClick={() => onNavigate('/about/us')} className="hover:text-white transition-colors">Terms of Use</button>
-            <span>•</span>
-            <button onClick={() => onNavigate('/about/us')} className="hover:text-white transition-colors">Privacy Policy</button>
+        {/* Lower Bar: Brand, Legal & Language */}
+        <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-6 text-xs text-slate-500">
+          <div className="flex items-center gap-6">
+            <span className="text-2xl font-black tracking-tighter text-black">WiX</span>
+            <div className="flex items-center gap-4 flex-wrap">
+              <button onClick={() => onNavigate('/about/us')} className="hover:text-slate-900 transition-colors">Terms of Use</button>
+              <button onClick={() => onNavigate('/about/us')} className="hover:text-slate-900 transition-colors">Privacy Policy</button>
+              <button onClick={() => onNavigate('/about/us')} className="hover:text-slate-900 transition-colors">Accessibility Statement</button>
+              <button onClick={() => onNavigate('/about/us')} className="hover:text-slate-900 transition-colors">Security</button>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-4">
+            <div className="flex items-center gap-1 text-slate-700 bg-white border border-slate-200 px-3 py-1.5 rounded-full">
+              <Globe className="w-3.5 h-3.5 text-slate-500" />
+              <span>English (US)</span>
+            </div>
+            <span>© 2006-2026 Wix.com, Inc</span>
           </div>
         </div>
       </div>
