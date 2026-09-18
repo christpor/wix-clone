@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import Lenis from 'lenis';
-import { Navbar } from './components/Navbar';
-import { Footer } from './components/Footer';
+import { Navbar } from './components/common/Navbar';
+import { Footer } from './components/common/Footer';
 import { HomePage } from './pages/HomePage';
 import { AIBuilderPage } from './pages/AIBuilderPage';
 import { EcommercePage } from './pages/EcommercePage';

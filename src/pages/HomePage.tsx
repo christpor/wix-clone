@@ -1,9 +1,9 @@
 import React from 'react';
-import { RealHero } from '../components/RealHero';
-import { StickySolutions } from '../components/StickySolutions';
-import { CustomizationSection } from '../components/CustomizationSection';
-import { AIVisibilitySection } from '../components/AIVisibilitySection';
-import { CommunityShowcase } from '../components/CommunityShowcase';
+import { RealHero } from '../features/hero/RealHero';
+import { StickySolutions } from '../features/solutions/StickySolutions';
+import { CustomizationSection } from '../features/customization/CustomizationSection';
+import { AIVisibilitySection } from '../features/ai-bento/AIVisibilitySection';
+import { CommunityShowcase } from '../features/showcase/CommunityShowcase';
 
 interface HomePageProps {
   onNavigate: (path: string) => void;
@@ -12,7 +12,7 @@ interface HomePageProps {
 export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
   return (
     <div className="w-full bg-white">
-      {/* 1. Authentic Wix Harmony Hero + Zeni Cafe + Ask Aria Widget */}
+      {/* 1. Authentic Wix Harmony Hero + Luna's Hair + Ask Aria Widget */}
       <RealHero onGetStarted={() => onNavigate('/ai-website-builder')} />
 
       {/* 2. Kinetic Sticky Scroll Solutions Accordion */}
