@@ -54,6 +54,46 @@
   color: transparent;
 }
 
+/* 3D floating animation keyframes */
+@keyframes wix-float-slow {
+  0%, 100% {
+    transform: translateY(0px) rotate(-3deg);
+  }
+  50% {
+    transform: translateY(-16px) rotate(-1deg);
+  }
+}
+
+@keyframes wix-float-fast {
+  0%, 100% {
+    transform: translateY(0px) rotate(4deg);
+  }
+  50% {
+    transform: translateY(-22px) rotate(6deg);
+  }
+}
+
+@keyframes wix-float-reverse {
+  0%, 100% {
+    transform: translateY(0px) rotate(2deg);
+  }
+  50% {
+    transform: translateY(-14px) rotate(0deg);
+  }
+}
+
+.animate-wix-float-slow {
+  animation: wix-float-slow 6s ease-in-out infinite;
+}
+
+.animate-wix-float-fast {
+  animation: wix-float-fast 5s ease-in-out infinite 1s;
+}
+
+.animate-wix-float-reverse {
+  animation: wix-float-reverse 7s ease-in-out infinite 2s;
+}
+
 /* Lenis Smooth Scroll CSS */
 html.lenis, html.lenis body {
   height: auto;

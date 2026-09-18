@@ -8,38 +8,62 @@ interface CommunityShowcaseProps {
 export const CommunityShowcase: React.FC<CommunityShowcaseProps> = ({ onExplore }) => {
   return (
     <section className="relative w-full bg-wix-good-company py-28 sm:py-36 overflow-hidden">
-      {/* Floating Ambient Brand Cards (Ground Truth from Frames 22-24) */}
+      {/* Floating Ambient Brand Cards with Real Keyframe Animations */}
       <div className="max-w-[1440px] mx-auto px-6 lg:px-12 relative z-10 text-center">
-        {/* Decorative Floating Cards */}
-        <div className="absolute -top-12 left-10 hidden md:block w-36 h-44 rounded-2xl bg-amber-100/90 shadow-lg border border-amber-200/50 p-2 transform -rotate-6 hover:rotate-0 transition-transform">
-          <div className="w-full h-24 rounded-xl bg-amber-800/80 mb-2 flex items-center justify-center text-white text-xs font-serif font-bold">
-            Studio M
+        {/* Card 1: Top Left */}
+        <div className="absolute -top-10 left-6 lg:left-14 hidden md:block w-40 h-48 rounded-2xl bg-white shadow-xl border border-slate-200/80 p-2 animate-wix-float-slow hover:scale-105 transition-transform cursor-pointer">
+          <div className="w-full h-32 rounded-xl overflow-hidden mb-2 bg-amber-100">
+            <img 
+              src="/assets/images/wix_asset_18.jpg" 
+              alt="Artisan Creator Studio"
+              className="w-full h-full object-cover"
+            />
           </div>
-          <span className="text-[10px] text-amber-900 font-medium block">Ceramics & Clay</span>
+          <span className="text-[11px] font-semibold text-slate-900 block">Studio Ceramics</span>
+          <span className="text-[9px] text-slate-500">Paris, France</span>
         </div>
 
-        <div className="absolute top-2 right-12 hidden md:block w-40 h-48 rounded-2xl bg-emerald-50/90 shadow-lg border border-emerald-200/50 p-2 transform rotate-6 hover:rotate-0 transition-transform">
-          <div className="w-full h-28 rounded-xl bg-emerald-800/80 mb-2 flex items-center justify-center text-white text-xs font-mono font-bold">
-            ARCHIVE 04
+        {/* Card 2: Top Right */}
+        <div className="absolute top-0 right-8 lg:right-16 hidden md:block w-44 h-52 rounded-2xl bg-white shadow-xl border border-slate-200/80 p-2 animate-wix-float-fast hover:scale-105 transition-transform cursor-pointer">
+          <div className="w-full h-36 rounded-xl overflow-hidden mb-2 bg-emerald-50">
+            <img 
+              src="/assets/images/wix_asset_20.jpg" 
+              alt="Editorial Lookbook"
+              className="w-full h-full object-cover"
+            />
           </div>
-          <span className="text-[10px] text-emerald-900 font-medium block">Editorial Lookbook</span>
+          <span className="text-[11px] font-semibold text-slate-900 block">Nordic Apparel</span>
+          <span className="text-[9px] text-slate-500">Stockholm, Sweden</span>
         </div>
 
-        <div className="absolute bottom-4 left-16 hidden lg:block w-44 h-36 rounded-2xl bg-white shadow-lg border border-slate-200/80 p-3 transform 3 hover:scale-105 transition-transform">
-          <span className="text-[10px] font-bold text-slate-400 uppercase">Featured Creator</span>
-          <p className="text-xs font-semibold text-slate-800 mt-1">Elena Rostova Photography</p>
-          <span className="text-[10px] text-blue-600 mt-2 block">120K followers</span>
+        {/* Card 3: Bottom Left */}
+        <div className="absolute bottom-2 left-12 lg:left-24 hidden lg:block w-44 h-48 rounded-2xl bg-white shadow-xl border border-slate-200/80 p-2.5 animate-wix-float-reverse hover:scale-105 transition-transform cursor-pointer">
+          <div className="w-full h-32 rounded-xl overflow-hidden mb-2 bg-indigo-50">
+            <img 
+              src="/assets/images/wix_asset_24.jpg" 
+              alt="Elena Rostova Photography"
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <span className="text-[11px] font-semibold text-slate-900 block">Elena Rostova</span>
+          <span className="text-[9px] text-blue-600 font-medium">Fine Art Photography</span>
         </div>
 
-        <div className="absolute -bottom-6 right-20 hidden lg:block w-40 h-40 rounded-2xl bg-indigo-50 shadow-lg border border-indigo-100 p-2 transform -rotate-3 hover:scale-105 transition-transform">
-          <div className="w-full h-24 rounded-xl bg-indigo-700 mb-2 flex items-center justify-center text-white text-xs font-bold">
-            KINETIC
+        {/* Card 4: Bottom Right */}
+        <div className="absolute -bottom-4 right-14 lg:right-28 hidden lg:block w-44 h-48 rounded-2xl bg-white shadow-xl border border-slate-200/80 p-2.5 animate-wix-float-slow hover:scale-105 transition-transform cursor-pointer">
+          <div className="w-full h-32 rounded-xl overflow-hidden mb-2 bg-rose-50">
+            <img 
+              src="/assets/images/wix_asset_25.jpg" 
+              alt="Motion Agency"
+              className="w-full h-full object-cover"
+            />
           </div>
-          <span className="text-[10px] text-indigo-900 font-medium block">Motion Agency</span>
+          <span className="text-[11px] font-semibold text-slate-900 block">Kinetic Studio</span>
+          <span className="text-[9px] text-slate-500">Tokyo, Japan</span>
         </div>
 
         {/* Central Content */}
-        <div className="max-w-2xl mx-auto my-12">
+        <div className="max-w-2xl mx-auto my-14">
           <h2 className="text-4xl sm:text-6xl lg:text-7xl font-normal tracking-[-0.035em] text-[#0F172A] leading-tight">
             You're in good company
           </h2>
